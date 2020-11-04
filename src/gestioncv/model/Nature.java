@@ -1,4 +1,4 @@
-package activity;
+package gestioncv.model;
 
 public enum Nature {
 	PROFESSIONAL_EXPERIENCE,
