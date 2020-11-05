@@ -2,19 +2,21 @@ package gestioncv.services.impl;
 
 import java.util.Collection;
 
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.apache.commons.lang3.NotImplementedException;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import javax.validation.Valid;
 
 import gestioncv.services.IDao;
+import gestioncv.utils.PageRequest;
 
-@Stateless
-public class Dao<T> implements IDao<T> {
+public abstract class Dao<T> implements IDao<T> {
 
 	@PersistenceContext(name = "myBase")
-	EntityManager em;
+	protected EntityManager em;
 
 	@Override
 	public T find(Class<T> clazz, Object id) {
@@ -22,8 +24,17 @@ public class Dao<T> implements IDao<T> {
 	}
 
 	@Override
-	public Collection<T> findAll(String query, Class<T> clazz) {
-		throw new NotImplementedException("La méthode n'est pas encore implémentée !");
+	public Collection<T> findAll(Class<T> clazz, @Valid PageRequest pageRequest) {
+
+		CriteriaBuilder builder = em.getCriteriaBuilder();
+		CriteriaQuery<T> cq = builder.createQuery(clazz);
+
+		Root<T> root = cq.from(clazz);
+		cq.select(root);
+		TypedQuery<T> typedQuery = em.createQuery(cq.select(root));
+		typedQuery.setFirstResult(pageRequest.getFirstResult());
+		typedQuery.setMaxResults(pageRequest.getMaxResultsPerPage());
+		return em.createQuery(cq).getResultList();
 	}
 
 	@Override
