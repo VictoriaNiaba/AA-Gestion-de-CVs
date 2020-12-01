@@ -33,3 +33,6 @@ target/
 /.settings
 /src/main/webapp/WEB-INF/classes
 /src/main/webapp/WEB-INF/lib
+
+# SQL Datasets
+insertQueries-*.sql
