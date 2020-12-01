@@ -36,3 +36,6 @@ target/
 
 # SQL Datasets
 insertQueries-*.sql
+
+# Documents to host on a Drive rather than Github
+docs/
