@@ -51,6 +51,6 @@ public class Person implements Serializable {
 			CascadeType.MERGE,
 			CascadeType.PERSIST,
 			CascadeType.REMOVE
-	}, fetch = FetchType.LAZY, mappedBy = "ownerId")
+	}, fetch = FetchType.LAZY, mappedBy = "owner")
 	private Collection<Activity> cv;
 }
