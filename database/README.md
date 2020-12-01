@@ -42,7 +42,7 @@ La procédure suivante indique comment créer une base de données pour le proje
 
 Le code SQL présent dans le fichier `database/databaseSetup.sql` décrit le schéma des tables de la base de données. Il a été généré à l'aide du logiciel JMerise et à partir du Modèle Conceptuel des Données suivant :
 
-<img src="/home/victoria/Documents/cours/cours_M2/Architecture_des_appli/JEE/MCD.png" alt="MCD" style="zoom: 67%;" />
+<img src="MCD.png" alt="MCD" style="zoom: 67%;" />
 
 Pour créer les tables en bases de données, se placer dans le dossier `database` et exécuter la commande suivante :
 
