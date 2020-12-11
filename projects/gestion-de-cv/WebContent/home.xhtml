@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <ui:composition template="/template/mylayout.xhtml">
+    <ui:define name="content">
+        <f:view>
+
+            <h1>Liste des CVs</h1>
+            <h:form>
+                <table class="table">
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th>
+                        <th>Actions</th>
+                    </tr>
+                    <!-- <c:forEach var="c" items="..."> -->
+                        <tr>
+                            <td>cv_id</td>
+                            <td>cv_name</td>
+                            <td><h:commandLink action="Show"
+                                    value="voir" /></td>
+                        </tr>
+                        <tr>
+                            <td>cv_id</td>
+                            <td>cv_name</td>
+                            <td><h:commandLink action="Show"
+                                    value="voir" /></td>
+                        </tr>
+                        <tr>
+                            <td>cv_id</td>
+                            <td>cv_name</td>
+                            <td><h:commandLink action="Show"
+                                    value="voir" /></td>
+                        </tr>
+                        <tr>
+                            <td>cv_id</td>
+                            <td>cv_name</td>
+                            <td><h:commandLink action="Show"
+                                    value="voir" /></td>
+                        </tr>
+                    <!-- </c:forEach> -->
+                </table>
+                <p>
+                    <h:commandButton styleClass="btn btn-success"
+                        action="Add" value="Ajouter un nouveau cv" />
+                </p>
+            </h:form>
+
+        </f:view>
+    </ui:define>
+</ui:composition>
+
+</html>
