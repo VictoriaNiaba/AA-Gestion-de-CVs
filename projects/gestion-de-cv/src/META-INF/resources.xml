@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+	<Resource id="MySQL_DataSource" type="javax.sql.DataSource">
+		JdbcDriver com.mysql.cj.jdbc.Driver
+		JdbcUrl jdbc:mysql://localhost:3306/Gestion-de-CVs?serverTimezone=UTC
+		UserName gestion-cv-admin
+		Password gestion-cv-admin
+		JtaManaged true
+	</Resource>
+	
+	<Resource id="HSQLDB_DataSource" type="javax.sql.DataSource">
+		JdbcDriver org.hsqldb.jdbcDriver
+		JdbcUrl jdbc:hsqldb:file:data/maBase;shutdown=true;hsqldb.write_delay=false
+		UserName sa
+		Password
+		JtaManaged true
+	</Resource>
+</resources>

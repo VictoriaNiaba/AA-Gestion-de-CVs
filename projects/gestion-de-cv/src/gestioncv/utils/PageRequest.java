@@ -1,16 +1,15 @@
 package gestioncv.utils;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Size;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class PageRequest {
 
-	@Min(0)
+//	@Min(0)
 	private int firstResult;
 
-	@Size(min = 0, max = 1000)
+//	@Size(min = 0, max = 1000)
 	private int maxResultsPerPage;
 }

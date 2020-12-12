@@ -3,8 +3,8 @@ package gestioncv.services.impl;
 import java.util.Collection;
 
 import javax.ejb.Stateless;
+import javax.enterprise.context.Dependent;
 import javax.persistence.TypedQuery;
-import javax.validation.Valid;
 
 import org.apache.commons.lang3.NotImplementedException;
 
@@ -13,6 +13,7 @@ import gestioncv.services.IPersonDao;
 import gestioncv.utils.PageRequest;
 
 @Stateless
+@Dependent
 public class PersonDao extends Dao<Person> implements IPersonDao {
 
 	@Override
@@ -31,7 +32,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 	}
 
 	@Override
-	public Collection<Person> findPersonsByFirstName(String pattern, @Valid PageRequest pageRequest) {
+	public Collection<Person> findPersonsByFirstName(String pattern, PageRequest pageRequest) {
 		String query = "SELECT p FROM Person p WHERE firstName LIKE :pattern"
 				+ "ORDER BY id ASC LIMIT :limit OFFSET :offset";
 
@@ -43,7 +44,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 	}
 
 	@Override
-	public Collection<Person> findPersonsByLastName(String pattern, @Valid PageRequest pageRequest) {
+	public Collection<Person> findPersonsByLastName(String pattern, PageRequest pageRequest) {
 		String query = "SELECT p FROM Person p WHERE lastName LIKE :pattern"
 				+ "ORDER BY id ASC LIMIT :limit OFFSET :offset";
 
@@ -55,7 +56,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 	}
 
 	@Override
-	public Collection<Person> findPersonsByActivityTitle(String title, @Valid PageRequest pageRequest) {
+	public Collection<Person> findPersonsByActivityTitle(String title, PageRequest pageRequest) {
 		throw new NotImplementedException("La méthode n'est pas encore implémentée !");
 	}
 
