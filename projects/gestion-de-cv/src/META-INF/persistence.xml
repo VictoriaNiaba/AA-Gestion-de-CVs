@@ -18,8 +18,9 @@
 			<property name="tomee.jpa.cdi" value="false" />
 		</properties>
 	</persistence-unit>
-	
-		<persistence-unit name="HsqldbData" transaction-type="JTA">
+
+	<!-- <persistence-unit name="HsqldbData"
+		transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>HSQLDB_DataSource</jta-data-source>
 		<properties>
@@ -29,7 +30,7 @@
 				value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
-	</persistence-unit>
-	
+	</persistence-unit> -->
+
 
 </persistence>
