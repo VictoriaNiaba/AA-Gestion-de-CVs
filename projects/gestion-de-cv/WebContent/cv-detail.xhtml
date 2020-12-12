@@ -1,0 +1,52 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="content">
+		<div class="ui-g">
+			<div class="ui-g-12">
+				<div class="card centerText">
+					<h1 class="lightBlack">Curriculum Vitae</h1>
+					<p:tabView>
+						<p:tab title="Informations personnelles">
+							<h:panelGrid columns="1" cellpadding="10">
+
+								<p:panelGrid columns="2" layout="grid">
+									<h:outputText value="Nom" />
+									<h:outputText value="#{cvView.selectedPerson.lastName}" />
+
+									<h:outputText value="Prénom" />
+									<h:outputText value="#{cvView.selectedPerson.firstName}" />
+
+									<h:outputText value="Site Web" />
+									<h:outputText value="#{cvView.selectedPerson.website}" />
+
+									<h:outputText value="Email" />
+									<h:outputText value="#{cvView.selectedPerson.email}" />
+
+									<h:outputText value="Date de naissance" />
+									<h:outputText value="#{cvView.selectedPerson.dateOfBirth}" />
+								</p:panelGrid>
+
+							</h:panelGrid>
+						</p:tab>
+						<p:tab title="Activités">
+							<h:panelGrid columns="2" cellpadding="10">
+								<h:outputText
+									value="After a break of more than 15 years. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                  Aenean blandit tortor a ipsum vehicula, in semper sapien auctor. Nulla tempor eget est non consequat." />
+							</h:panelGrid>
+						</p:tab>
+					</p:tabView>
+
+					<p:commandButton action="#{cvView.showEditPage()}" value="Modifier" />
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

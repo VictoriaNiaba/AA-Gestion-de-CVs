@@ -1,0 +1,59 @@
+table {
+	width: 100%;
+}
+
+.ui-tabs {
+	text-align: left;
+}
+
+.ui-tabs-nav {
+	border-radius: 0 3px;
+}
+
+.ui-panelgrid-content {
+	border: 0;
+}
+
+#top-bar-wrapper #top-bar .top-bar-profile {
+	border: 0;
+}
+
+@media ( max-width : 1024px) and (min-width: 641px) {
+	.wrapper #sidebar-wrapper #sidebar-header #logo-wrapper img {
+		width: 35px;
+		height: 35px;
+		margin: 0;
+	}
+	.wrapper #sidebar-wrapper.normalize-menu #sidebar-header #logo-wrapper img
+		{
+		height: auto;
+		width: 4.5rem;
+		margin: 12px 0;
+	}
+}
+
+@media ( max-width : 640px) {
+	.wrapper.slim-menu #sidebar-wrapper #sidebar-header #logo-wrapper img {
+		height: auto;
+		width: 4.5rem;
+		margin: 12px 0;
+	}
+}
+
+#sidebar-header #logo {
+	height: auto;
+	width: 4.5rem;
+	margin: 12px 0;
+}
+
+.ui-panelgrid-cell:first-of-type {
+	font-weight: bold;
+}
+
+.nano > .nano-content {
+	overflow: hidden;
+}
+
+.card :not(h1):not(.ui-paginator) {
+	text-align: left;
+}
