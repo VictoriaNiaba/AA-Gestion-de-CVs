@@ -50,10 +50,16 @@ table {
 	font-weight: bold;
 }
 
-.nano > .nano-content {
+.nano>.nano-content {
 	overflow: hidden;
 }
 
 .card :not(h1):not(.ui-paginator) {
 	text-align: left;
+}
+
+#PageLogo {
+	height: auto;
+	width: 10rem;
+	margin: 12px 0;
 }
