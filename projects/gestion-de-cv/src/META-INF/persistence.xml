@@ -4,7 +4,7 @@
     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
 	version="2.2">
 
-	<persistence-unit name="myData" transaction-type="JTA">
+	<persistence-unit name="MySQL_persistence_unit" transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>MySQL_DataSource</jta-data-source>
 		<properties>
@@ -13,24 +13,24 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL8Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-
 			<property name="tomee.jpa.factory.lazy" value="true" />
 			<property name="tomee.jpa.cdi" value="false" />
 		</properties>
 	</persistence-unit>
 
-	<!-- <persistence-unit name="HsqldbData"
+	<persistence-unit name="myData"
 		transaction-type="JTA">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>HSQLDB_DataSource</jta-data-source>
 		<properties>
-			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.format_sql" value="true" />
-			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.HSQLDialect" />
+			<!-- Hibernate properties -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-		</properties>
-	</persistence-unit> -->
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
 
+			<property name="tomee.jpa.factory.lazy" value="true" />
+		</properties>
+	</persistence-unit>
 
 </persistence>
