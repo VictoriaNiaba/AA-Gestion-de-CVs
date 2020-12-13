@@ -1,6 +1,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
 
@@ -29,19 +30,84 @@
 									<h:outputText value="Date de naissance" />
 									<h:outputText value="#{cvView.selectedPerson.dateOfBirth}" />
 								</p:panelGrid>
-
+								<p:commandButton action="#{cvView.showEditPage()}"
+									value="Modifier" />
 							</h:panelGrid>
 						</p:tab>
 						<p:tab title="Activités">
-							<h:panelGrid columns="2" cellpadding="10">
-								<h:outputText
-									value="After a break of more than 15 years. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                  Aenean blandit tortor a ipsum vehicula, in semper sapien auctor. Nulla tempor eget est non consequat." />
+							<h:panelGrid columns="1" cellpadding="10">
+
+								<h3>Formations</h3>
+								<c:forEach var="activity"
+									items="#{cvView.selectedPersonEducations}">
+									<p:fieldset legend="#{activity.title} | #{activity.year}"
+										toggleable="true" toggleSpeed="500">
+										<h:panelGrid columns="1" cellpadding="5">
+											<h:outputText>#{activity.description}</h:outputText>
+											<p:link target="_blank" href="#{activity.webAddress}"
+												value="#{activity.webAddress}" />
+										</h:panelGrid>
+										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
+										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+									</p:fieldset>
+								</c:forEach>
+								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.EDUCATION, cvView.selectedPerson)}"
+									value="Ajouter une nouvelle formation" />
+
+								<h3>Expériences professionnelles</h3>
+								<c:forEach var="activity"
+									items="#{cvView.selectedPersonProfessionalExperiences}">
+									<p:fieldset legend="#{activity.title} | #{activity.year}"
+										toggleable="true" toggleSpeed="500">
+										<h:panelGrid columns="1" cellpadding="5">
+											<h:outputText>#{activity.description}</h:outputText>
+											<p:link target="_blank" href="#{activity.webAddress}"
+												value="#{activity.webAddress}" />
+										</h:panelGrid>
+										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
+										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+									</p:fieldset>
+								</c:forEach>
+								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.PROFESSIONAL_EXPERIENCE, cvView.selectedPerson)}"
+									value="Ajouter une nouvelle expérience professionnelle" />
+
+								<h3>Projets</h3>
+								<c:forEach var="activity"
+									items="#{cvView.selectedPersonProjects}">
+									<p:fieldset legend="#{activity.title} | #{activity.year}"
+										toggleable="true" toggleSpeed="500">
+										<h:panelGrid columns="1" cellpadding="5">
+											<h:outputText>#{activity.description}</h:outputText>
+											<p:link target="_blank" href="#{activity.webAddress}"
+												value="#{activity.webAddress}" />
+										</h:panelGrid>
+										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
+										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+									</p:fieldset>
+								</c:forEach>
+								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.PROJECT, cvView.selectedPerson)}"
+									value="Ajouter un nouveau projet" />
+
+								<h3>Autres</h3>
+								<c:forEach var="activity"
+									items="#{cvView.selectedPersonOtherActivities}">
+									<p:fieldset legend="#{activity.title} | #{activity.year}"
+										toggleable="true" toggleSpeed="500">
+										<h:panelGrid columns="1" cellpadding="5">
+											<h:outputText>#{activity.description}</h:outputText>
+											<p:link target="_blank" href="#{activity.webAddress}"
+												value="#{activity.webAddress}" />
+										</h:panelGrid>
+										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
+										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+									</p:fieldset>
+								</c:forEach>
+								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.OTHER, cvView.selectedPerson)}"
+									value="Ajouter un autre type d'activité" />
+
 							</h:panelGrid>
 						</p:tab>
 					</p:tabView>
-
-					<p:commandButton action="#{cvView.showEditPage()}" value="Modifier" />
 
 				</div>
 			</div>

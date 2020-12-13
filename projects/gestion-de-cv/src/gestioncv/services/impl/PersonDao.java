@@ -18,7 +18,9 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 
 	@Override
 	public Person find(int id) {
-		return super.find(Person.class, id);
+		Person p = super.find(Person.class, id);
+		p.getCv().size(); // Trigger LazyLoading
+		return p;
 	}
 
 	@Override

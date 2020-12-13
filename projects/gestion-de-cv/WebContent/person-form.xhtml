@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="content">
+		<div class="ui-g">
+			<div class="ui-g-12">
+				<div class="card centerText">
+					<h1 class="lightBlack">Curriculum Vitae</h1>
+
+					<c:set var="p" value="#{cvView.selectedPerson}" />
+					<h:form>
+						<h3>Informations personnelles</h3>
+						<div class="ui-fluid">
+							<div class="p-field">
+								<p:outputLabel for="firstName1" value="Prénom" />
+								<p:inputText id="firstName1" value="#{p.firstName}">
+									<f:ajax event="blur" render="firstNameMessage" />
+								</p:inputText>
+								<p:message id="firstNameMessage" for="firstName1"
+									errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="lastName1" value="Nom" />
+								<p:inputText id="lastName1" value="#{p.lastName}">
+									<f:ajax event="blur" render="lastNameMessage" />
+								</p:inputText>
+								<p:message id="lastNameMessage" for="lastName1"
+									errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="website1" value="Site web" />
+								<p:inputText id="website1" value="#{p.website}">
+									<f:ajax event="blur" render="websiteMessage" />
+								</p:inputText>
+								<p:message id="websiteMessage" for="website1"
+									errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="email1" value="E-mail" />
+								<p:inputText id="email1" value="#{p.email}">
+									<f:ajax event="blur" render="emailMessage" />
+								</p:inputText>
+								<p:message id="emailMessage" for="email1" errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="dateOfBirth1" value="Date de naissance" />
+								<p:datePicker id="dateOfBirth1" value="#{p.dateOfBirth}"
+									pattern="dd/MM/yyyy" required="true">
+									<f:ajax event="blur" render="dateOfBirthMessage" />
+								</p:datePicker>
+								<p:message id="dateOfBirthMessage" for="dateOfBirth1"
+									errorClass="erreur" />
+							</div>
+						</div>
+
+						<p:commandButton action="#{cvView.savePerson(p)}"
+							value="sauvegarder">
+							<f:ajax execute="@form" render="@form" />
+						</p:commandButton>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

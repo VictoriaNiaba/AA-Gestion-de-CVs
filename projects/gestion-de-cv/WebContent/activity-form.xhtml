@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/WEB-INF/template.xhtml">
+
+	<ui:define name="content">
+		<div class="ui-g">
+			<div class="ui-g-12">
+				<div class="card centerText">
+					<h1 class="lightBlack">Curriculum Vitae</h1>
+
+					<c:set var="a" value="#{activityView.selectedActivity}" />
+					<h:form>
+						<h3>Activité</h3>
+						<div class="ui-fluid">
+							<div class="p-field">
+								<p:outputLabel for="title1" value="Titre" />
+								<p:inputText id="title1" value="#{a.title}">
+									<f:ajax event="blur" render="titleMessage" />
+								</p:inputText>
+								<p:message id="titleMessage" for="title1" errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="year1" value="Année" />
+								<p:inputText id="year1" value="#{a.year}">
+									<f:ajax event="blur" render="yearMessage" />
+								</p:inputText>
+								<p:message id="yearMessage" for="year1" errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="description1" value="Description" />
+								<p:inputTextarea id="description1" value="#{a.description}"
+									autoResize="true">
+									<f:ajax event="blur" render="descriptionMessage" />
+								</p:inputTextarea>
+								<p:message id="descriptionMessage" for="description1"
+									errorClass="erreur" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel for="webAddress1" value="Adresse web" />
+								<p:inputText id="webAddress1" value="#{a.webAddress}">
+									<f:ajax event="blur" render="webAddressMessage" />
+								</p:inputText>
+								<p:message id="webAddressMessage" for="webAddress1"
+									errorClass="erreur" />
+							</div>
+						</div>
+
+						<p:commandButton action="#{activityView.saveActivity(a)}"
+							value="sauvegarder">
+							<f:ajax execute="@form" render="@form" />
+						</p:commandButton>
+					</h:form>
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>
