@@ -10,7 +10,8 @@
 
         <pi:menu widgetVar="IcarusMenu">
             <p:menuitem id="im_home" value="Liste des CVs" icon="fa fa-home" outcome="/cv-list"/>
-            <p:submenu id="im_default" label="Default Pages" icon="fa fa-life-saver">
+            <p:submenu id="im_default" label="Mes CVs" icon="fa fa-life-saver">
+            	<p:menuitem id="im_add" value="Ajouter un CV" icon="fa fa-square-o" outcome="/add-cv" />
                 <p:menuitem id="im_empty" value="Empty Page" icon="fa fa-square-o" outcome="/empty-page" />
                 <p:menuitem id="im_login" value="Login Page" icon="fa fa-sign-in" outcome="/login" />
                 <p:menuitem id="im_error" value="Error Page" icon="fa fa-exclamation-circle" outcome="/errors/error" />
