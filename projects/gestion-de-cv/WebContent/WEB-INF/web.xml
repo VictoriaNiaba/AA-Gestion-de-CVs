@@ -49,6 +49,34 @@
 		<param-value>true</param-value>
 	</context-param>
 
+	<welcome-file-list>
+		<welcome-file>/index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- Sécurité -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Admin</web-resource-name>
+			<url-pattern>/protected/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>Authenticated</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-role>
+		<role-name>Authenticated</role-name>
+	</security-role>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+		<form-login-config>
+			<form-login-page>/login.xhtml</form-login-page>
+			<form-error-page>/login.xhtml</form-error-page>
+		</form-login-config>
+	</login-config>
+
+
 	<!-- Pages d'erreur -->
 	<error-page>
 		<error-code>404</error-code>

@@ -14,7 +14,6 @@ import gestioncv.model.Activity;
 import gestioncv.model.Nature;
 import gestioncv.model.Person;
 import gestioncv.services.IPersonDao;
-import gestioncv.utils.PageRequest;
 import lombok.Getter;
 
 @Named("cvView")
@@ -26,7 +25,7 @@ public class CvView implements Serializable {
 	@Inject
 	private IPersonDao personDao;
 
-	/* Données utilisées dans les vues */
+	/* Donn�es utilis�es dans les vues */
 	private @Getter Collection<Person> persons;
 	private @Getter Person selectedPerson;
 
@@ -55,8 +54,7 @@ public class CvView implements Serializable {
 
 	@PostConstruct
 	public void init() {
-		// TODO: supprimer la pagination, Primefaces le fait déjà
-		this.persons = personDao.findAll(new PageRequest(0, 100));
+		this.persons = personDao.findAll();
 	}
 
 	/**
@@ -68,7 +66,7 @@ public class CvView implements Serializable {
 	 */
 	public String show(int id) {
 		selectedPerson = personDao.find(id);
-		return "cv-detail";
+		return "cv-detail?faces-redirect=true";
 	}
 
 	public String showEditPage() {
