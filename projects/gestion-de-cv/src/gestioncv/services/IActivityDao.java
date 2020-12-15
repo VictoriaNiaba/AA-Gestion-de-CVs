@@ -3,13 +3,12 @@ package gestioncv.services;
 import java.util.Collection;
 
 import gestioncv.model.Activity;
-import gestioncv.utils.PageRequest;
 
 public interface IActivityDao {
 
 	Activity find(int id);
 
-	Collection<Activity> findAll(PageRequest pageRequest);
+	Collection<Activity> findAll();
 
 	/**
 	 * Ajoute l'entité passée en paramètre en base de données.

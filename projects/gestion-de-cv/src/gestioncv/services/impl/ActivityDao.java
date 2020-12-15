@@ -6,7 +6,6 @@ import javax.ejb.Stateless;
 
 import gestioncv.model.Activity;
 import gestioncv.services.IActivityDao;
-import gestioncv.utils.PageRequest;
 
 @Stateless
 public class ActivityDao extends Dao<Activity> implements IActivityDao {
@@ -17,8 +16,8 @@ public class ActivityDao extends Dao<Activity> implements IActivityDao {
 	}
 
 	@Override
-	public Collection<Activity> findAll(PageRequest pageRequest) {
-		return super.findAll(Activity.class, pageRequest);
+	public Collection<Activity> findAll() {
+		return super.findAll(Activity.class);
 	}
 
 	@Override
