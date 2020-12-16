@@ -14,12 +14,12 @@ import gestioncv.model.Person;
 import gestioncv.services.IPersonDao;
 
 /**
- * Cette implémentation de LoginProvider est utilisée par le
+ * Cette implÃ©mentation de LoginProvider est utilisÃ©e par le
  * ServiceProviderLoginModule de OpenEJB + Jaas pour authentifier les
  * utilisateurs.
  * 
  * Elle n'est pas compatible avec les technologies EJB/CDI et les injections de
- * dépendances doivent donc être réalisées manuellement à l'aide de la méthode
+ * dÃ©pendances doivent donc etre rÃ©alisÃ©es manuellement Ã  l'aide de la mÃ©thode
  * lookup().
  */
 public class CustomLoginProvider implements LoginProvider {

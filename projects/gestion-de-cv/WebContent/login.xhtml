@@ -33,15 +33,15 @@
 					<br />
 				</div>
 				<div class="ui-g-12" style="padding-top: 10px;">
-					<p:password value="#{password}" placeholder="Entrez votre mot de passe"
-						style="width:60%" />
+					<p:password value="#{password}"
+						placeholder="Entrez votre mot de passe" style="width:60%" />
 				</div>
 				<div class="ui-g-12">
-					<p:messages globalOnly="true"/>
+					<p:messages globalOnly="true" />
 				</div>
 				<p:commandButton action="#{loginView.login()}" id="submit"
 					value="Se connecter" ajax="false" />
-					
+
 			</h:form>
 		</p:panel>
 		<div class="ui-g-12 footer-login">

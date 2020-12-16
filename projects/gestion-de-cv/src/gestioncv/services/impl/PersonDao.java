@@ -36,7 +36,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 	public Collection<Person> findAll() {
 		return super.findAll(Person.class);
 	}
-	
+
 	@RolesAllowed("Authenticated")
 	@Override
 	public Person add(Person person) {
@@ -76,7 +76,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 
 	@Override
 	public Collection<Person> findPersonsByActivityTitle(String title) {
-		throw new NotImplementedException("La méthode n'est pas encore implémentée !");
+		throw new NotImplementedException("La mÃ©thode n'est pas encore implÃ©mentÃ©e !");
 	}
 
 }

@@ -29,27 +29,26 @@ public class ActivityView implements Serializable {
 		System.out.println(selectedActivity);
 		return "activity-form";
 	}
-	
+
 	public String showActivityCreatePage(Nature nature, Person person) {
 		selectedActivity = new Activity();
 		selectedActivity.setNature(nature);
 		selectedActivity.setOwner(person);
 		return "activity-form";
 	}
-	
+
 	public void deleteActivity(int id) {
 		// TODO: afficher une pop-up de confirmation avant de supprimer
 		this.activityDao.remove(id);
 	}
-	
+
 	public String saveActivity(Activity activity) {
-		if(activity.getId() != 0) {
+		if (activity.getId() != 0) {
 			selectedActivity = activityDao.update(activity);
-		}
-		else {
+		} else {
 			selectedActivity = activityDao.add(activity);
 		}
-		// TODO: faire en sorte que la mise-à-jour soit visible au sein de la collection
+		// TODO: faire en sorte que la mise-Ã -jour soit visible au sein de la collection
 		return "cv-detail";
 	}
 }
