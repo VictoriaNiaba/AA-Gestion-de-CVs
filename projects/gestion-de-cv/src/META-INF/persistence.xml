@@ -24,7 +24,8 @@
 		<jta-data-source>HSQLDB_DataSource</jta-data-source>
 		<properties>
 			<!-- Hibernate properties -->
-			<property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.HSQLDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.format_sql" value="true" />
 			<property name="hibernate.show_sql" value="true" />

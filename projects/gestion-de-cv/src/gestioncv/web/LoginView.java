@@ -28,11 +28,11 @@ public class LoginView implements Serializable {
 	@Inject
 	private IPersonDao personDao;
 
-	/* Données utilisées dans les vues */
+	/* Donnï¿½es utilisï¿½es dans les vues */
 	private @Getter Person loggedInUser;
 	private @Getter @Setter String login;
 	private @Getter @Setter String password;
-    private String originalURL;
+	private String originalURL;
 
 	@PostConstruct
 	public void init() {

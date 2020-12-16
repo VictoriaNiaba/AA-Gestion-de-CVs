@@ -20,9 +20,9 @@
 								<p:inputText id="firstName1" value="#{p.firstName}">
 									<f:ajax event="blur" render="firstNameMessage" />
 								</p:inputText>
-								<p:message id="firstNameMessage" for="firstName1"
-									errorClass="erreur" />
 							</div>
+							<p:message id="firstNameMessage" for="firstName1"
+								errorClass="erreur" />
 							<div class="p-field">
 								<p:outputLabel for="lastName1" value="Nom" />
 								<p:inputText id="lastName1" value="#{p.lastName}">
