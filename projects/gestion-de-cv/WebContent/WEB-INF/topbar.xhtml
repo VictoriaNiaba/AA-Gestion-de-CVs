@@ -1,27 +1,46 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
-
 
 	<div id="top-bar-wrapper">
 		<div id="top-bar">
-
 			<div class="top-bar-profile">
-				<div class="profile-name">
-					<span>Walter White</span><br /> Admin
-				</div>
-				<a href="#" id="profile-image"> <h:graphicImage
-						name="images/profile.png" library="icarus-layout"
-						style="border: 0 none;" />
-				</a>
-				<ul class="top-submenu animated flipInX">
-					<li><a href="#"> <i class="fa fa-fw fa-user"></i> <span>Profil</span>
-					</a></li>
-					<li><a href="#"> <i
-							class="top-submenu-icon fa fa-fw fa-close"></i> <span>Déconnexion</span>
-					</a></li>
-				</ul>
+
+				<c:choose>
+					<c:when test="${user != null}">
+						<div class="profile-name">
+							<span>#{user.lastName}</span>
+							<br />
+							#{user.firstName}
+						</div>
+
+
+						<a href="#" id="profile-image">
+							<h:graphicImage name="images/profile.png" library="icarus-layout"
+								style="border: 0 none;" />
+						</a>
+						<ul class="top-submenu animated flipInX">
+							<li>
+								<p:commandLink
+									action="#{cvView.show(loginView.loggedInUser.id)}">
+									<h:outputText value="Profil" />
+									<i class="fa fa-fw fa-user"></i>
+								</p:commandLink>
+							</li>
+							<li>
+								<p:commandLink action="#{loginView.logout()}">
+									<h:outputText value="Déconnexion" />
+									<i class="top-submenu-icon fa fa-fw fa-close"></i>
+								</p:commandLink>
+							</li>
+						</ul>
+					</c:when>
+					<c:otherwise>
+						<p:button class="profile-name" outcome="login" value="connexion" />
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 	</div>

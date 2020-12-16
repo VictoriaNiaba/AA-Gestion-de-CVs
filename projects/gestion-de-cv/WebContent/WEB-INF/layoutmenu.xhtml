@@ -9,15 +9,7 @@
     <h:form id="menuform">
 
         <pi:menu widgetVar="IcarusMenu">
-            <p:menuitem id="im_home" value="Liste des CVs" icon="fa fa-home" outcome="/cv-list"/>
-            <p:submenu id="im_default" label="Default Pages" icon="fa fa-life-saver">
-                <p:menuitem id="im_empty" value="Empty Page" icon="fa fa-square-o" outcome="/empty-page" />
-                <p:menuitem id="im_login" value="Login Page" icon="fa fa-sign-in" outcome="/login" />
-                <p:menuitem id="im_error" value="Error Page" icon="fa fa-exclamation-circle" outcome="/errors/error" />
-                <p:menuitem id="im_404" value="404 Page" icon="fa fa-times" outcome="/errors/404" />
-                <p:menuitem id="im_access" value="Access Denied Page" icon="fa fa-exclamation-triangle" outcome="/errors/access-denied" />
-            </p:submenu>
-            
+            <p:menuitem id="im_home" value="Liste des CVs" icon="fa fa-home" outcome="/cv-list"/>            
             <p:menuitem id="im_doc" value="Documentation" icon="fa fa-book" outcome="/empty-page"/>
             <p:menuitem id="im_about" value="À propos" icon="fa fa-info" outcome="/empty-page"/>
         </pi:menu>

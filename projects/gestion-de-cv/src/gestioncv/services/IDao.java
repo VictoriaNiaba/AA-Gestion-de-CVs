@@ -2,13 +2,11 @@ package gestioncv.services;
 
 import java.util.Collection;
 
-import gestioncv.utils.PageRequest;
-
 public interface IDao<T> {
 
 	T find(Class<T> clazz, Object id);
 
-	Collection<T> findAll(Class<T> clazz, PageRequest pageRequest);
+	Collection<T> findAll(Class<T> clazz);
 
 	/**
 	 * Ajoute l'entité passée en paramètre en base de données.
