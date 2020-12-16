@@ -28,8 +28,7 @@ public class LoginView implements Serializable {
 	@Inject
 	private IPersonDao personDao;
 
-	/* Donn�es utilis�es dans les vues */
-	private @Getter Person loggedInUser;
+	/* Données utilisées dans les vues */
 	private @Getter @Setter String login;
 	private @Getter @Setter String password;
 	private String originalURL;

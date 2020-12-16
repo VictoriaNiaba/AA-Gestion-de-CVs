@@ -16,7 +16,6 @@
 							#{user.firstName}
 						</div>
 
-
 						<a href="#" id="profile-image">
 							<h:graphicImage name="images/profile.png" library="icarus-layout"
 								style="border: 0 none;" />
@@ -24,7 +23,7 @@
 						<ul class="top-submenu animated flipInX">
 							<li>
 								<p:commandLink
-									action="#{cvView.show(loginView.loggedInUser.id)}">
+									action="#{cvView.show(user.id)}">
 									<h:outputText value="Profil" />
 									<i class="fa fa-fw fa-user"></i>
 								</p:commandLink>
