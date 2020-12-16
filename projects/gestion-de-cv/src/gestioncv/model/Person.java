@@ -13,6 +13,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,27 +32,33 @@ public class Person implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	@NotNull(message = "Veuillez saisir votre nom")
+	@Size(min = 2, max = 255, message = "le nom doit contenir entre 2 et 255 caractères")
+	@NotNull(message = "le nom est requis")
 	@Column(nullable = false, length = 255)
 	private String lastName;
 
-	@NotNull(message = "Veuillez saisir votre prénom")
+	@Size(min = 2, max = 255, message = "le prénom doit contenir entre 2 et 255 caractères")
+	@NotNull(message = "le prénom est requis")
 	@Column(nullable = false, length = 255)
 	private String firstName;
 
 	@Column(length = 255)
+	// TODO: valider le site web
 	private String website;
 
-	@NotNull(message = "Veuillez saisir votre email")
+	@NotNull(message = "l'email est requis")
+	// TODO: valider l'email à l'aide d'une annotation perso.
+	@Pattern(regexp = "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)", //
+			message = "merci de saisir un email valide")
 	@Column(nullable = false, length = 255, unique = true)
 	private String email;
 
-	@NotNull(message = "Veuillez saisir votre date de naissance")
+	@NotNull(message = "la date de naissance est requise")
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
-	@NotNull(message = "Veuillez saisir votre mot de passe")
-	@Column(nullable = false, length = 255)
+	// TODO: valider le mot de passe lorsque le hachage aura été défini
+	@Column(nullable = false, length = 102)
 	private String password;
 
 	@OneToMany(cascade = {
