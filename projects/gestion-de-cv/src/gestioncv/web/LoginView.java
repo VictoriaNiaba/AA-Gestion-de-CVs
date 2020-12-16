@@ -65,10 +65,11 @@ public class LoginView implements Serializable {
 		} catch (ServletException e) {
 			e.printStackTrace();
 			// Handle unknown username/password in request.login().
-			context.addMessage(null, new FacesMessage("Unknown login"));
+			context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					"Erreur: les identifiants saisis sont incorrects", null));
 			return "login";
 		}
-		
+
 		return "cv-list";
 	}
 

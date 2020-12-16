@@ -28,16 +28,16 @@
 		<p:panel header="Connexion" styleClass="panel-login">
 			<h:form>
 				<div class="ui-g-12" style="padding-top: 35px;">
-					<p:inputText value="#{login}" placeholder="Votre Email"
+					<p:inputText value="#{login}" placeholder="Entrez votre email"
 						style="width:60%;" />
 					<br />
 				</div>
 				<div class="ui-g-12" style="padding-top: 10px;">
-					<p:password value="#{password}" placeholder="Votre Mot de passe"
+					<p:password value="#{password}" placeholder="Entrez votre mot de passe"
 						style="width:60%" />
 				</div>
 				<div class="ui-g-12">
-					<p:messages globalOnly="true" errorClass="erreur" />
+					<p:messages globalOnly="true"/>
 				</div>
 				<p:commandButton action="#{loginView.login()}" id="submit"
 					value="Se connecter" ajax="false" />
