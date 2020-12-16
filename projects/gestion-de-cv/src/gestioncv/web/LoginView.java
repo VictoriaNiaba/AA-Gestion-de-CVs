@@ -75,6 +75,6 @@ public class LoginView implements Serializable {
 	public void logout() throws IOException {
 		ExternalContext externalContext = FacesContext.getCurrentInstance().getExternalContext();
 		externalContext.invalidateSession();
-		externalContext.redirect(externalContext.getRequestContextPath() + "/login.xhtml");
+		externalContext.redirect(externalContext.getRequestContextPath() + "/cv-list.xhtml");
 	}
 }

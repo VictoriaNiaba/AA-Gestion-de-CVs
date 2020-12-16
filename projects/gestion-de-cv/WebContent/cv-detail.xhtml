@@ -30,8 +30,12 @@
 									<h:outputText value="Date de naissance" />
 									<h:outputText value="#{cvView.selectedPerson.dateOfBirth}" />
 								</p:panelGrid>
-								<p:commandButton action="#{cvView.showEditPage()}"
-									value="Modifier" />
+
+								<c:if test="${cvView.showEditButtons}">
+									<p:commandButton action="#{cvView.showEditPage()}"
+										value="Modifier" />
+								</c:if>
+
 							</h:panelGrid>
 						</p:tab>
 						<p:tab title="Activités">
@@ -47,11 +51,16 @@
 											<p:link target="_blank" href="#{activity.webAddress}"
 												value="#{activity.webAddress}" />
 										</h:panelGrid>
-										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
-										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+										<p:commandButton
+											action="#{activityView.deleteActivity(activity.id)}"
+											value="Supprimer" />
+										<p:commandButton
+											action="#{activityView.showActivityEditPage(activity.id)}"
+											value="Modifier" />
 									</p:fieldset>
 								</c:forEach>
-								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.EDUCATION, cvView.selectedPerson)}"
+								<p:commandButton
+									action="#{activityView.showActivityCreatePage(Nature.EDUCATION, cvView.selectedPerson)}"
 									value="Ajouter une nouvelle formation" />
 
 								<h3>Expériences professionnelles</h3>
@@ -64,11 +73,16 @@
 											<p:link target="_blank" href="#{activity.webAddress}"
 												value="#{activity.webAddress}" />
 										</h:panelGrid>
-										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
-										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+										<p:commandButton
+											action="#{activityView.deleteActivity(activity.id)}"
+											value="Supprimer" />
+										<p:commandButton
+											action="#{activityView.showActivityEditPage(activity.id)}"
+											value="Modifier" />
 									</p:fieldset>
 								</c:forEach>
-								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.PROFESSIONAL_EXPERIENCE, cvView.selectedPerson)}"
+								<p:commandButton
+									action="#{activityView.showActivityCreatePage(Nature.PROFESSIONAL_EXPERIENCE, cvView.selectedPerson)}"
 									value="Ajouter une nouvelle expérience professionnelle" />
 
 								<h3>Projets</h3>
@@ -81,11 +95,16 @@
 											<p:link target="_blank" href="#{activity.webAddress}"
 												value="#{activity.webAddress}" />
 										</h:panelGrid>
-										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
-										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+										<p:commandButton
+											action="#{activityView.deleteActivity(activity.id)}"
+											value="Supprimer" />
+										<p:commandButton
+											action="#{activityView.showActivityEditPage(activity.id)}"
+											value="Modifier" />
 									</p:fieldset>
 								</c:forEach>
-								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.PROJECT, cvView.selectedPerson)}"
+								<p:commandButton
+									action="#{activityView.showActivityCreatePage(Nature.PROJECT, cvView.selectedPerson)}"
 									value="Ajouter un nouveau projet" />
 
 								<h3>Autres</h3>
@@ -98,11 +117,16 @@
 											<p:link target="_blank" href="#{activity.webAddress}"
 												value="#{activity.webAddress}" />
 										</h:panelGrid>
-										<p:commandButton action="#{activityView.deleteActivity(activity.id)}" value="Supprimer" />
-										<p:commandButton action="#{activityView.showActivityEditPage(activity.id)}" value="Modifier" />
+										<p:commandButton
+											action="#{activityView.deleteActivity(activity.id)}"
+											value="Supprimer" />
+										<p:commandButton
+											action="#{activityView.showActivityEditPage(activity.id)}"
+											value="Modifier" />
 									</p:fieldset>
 								</c:forEach>
-								<p:commandButton action="#{activityView.showActivityCreatePage(Nature.OTHER, cvView.selectedPerson)}"
+								<p:commandButton
+									action="#{activityView.showActivityCreatePage(Nature.OTHER, cvView.selectedPerson)}"
 									value="Ajouter un autre type d'activité" />
 
 							</h:panelGrid>
