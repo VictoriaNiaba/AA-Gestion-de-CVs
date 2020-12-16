@@ -34,7 +34,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 
 	@Override
 	public Collection<Person> findAll() {
-		return super.findAll(Person.class);
+		return findAll(Person.class);
 	}
 	
 	@RolesAllowed("Authenticated")
@@ -51,7 +51,7 @@ public class PersonDao extends Dao<Person> implements IPersonDao {
 
 	@Override
 	public void remove(int id) {
-		super.remove(Person.class, id);
+		remove(Person.class, id);
 	}
 
 	@Override

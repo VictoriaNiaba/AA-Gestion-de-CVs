@@ -17,12 +17,12 @@ public class ActivityDao extends Dao<Activity> implements IActivityDao {
 
 	@Override
 	public Collection<Activity> findAll() {
-		return super.findAll(Activity.class);
+		return findAll(Activity.class);
 	}
 
 	@Override
 	public void remove(int id) {
-		super.remove(Activity.class, id);
+		remove(Activity.class, id);
 	}
 
 }
