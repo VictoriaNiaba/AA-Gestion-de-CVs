@@ -12,8 +12,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
@@ -42,14 +43,13 @@ public class Person implements Serializable {
 	@Column(nullable = false, length = 255)
 	private String firstName;
 
+	@Max(value = 255, message = "le site web ne doit pas contenir plus de 255 caractères")
 	@Column(length = 255)
 	// TODO: valider le site web
 	private String website;
 
 	@NotNull(message = "l'email est requis")
-	// TODO: valider l'email à l'aide d'une annotation perso.
-	@Pattern(regexp = "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)", //
-			message = "merci de saisir un email valide")
+	@Email(message = "merci de saisir un email valide")
 	@Column(nullable = false, length = 255, unique = true)
 	private String email;
 
