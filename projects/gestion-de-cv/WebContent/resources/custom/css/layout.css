@@ -63,3 +63,9 @@ table {
 	width: 10rem;
 	margin: 12px 0;
 }
+
+@media ( min-width : 641px) {
+	.wrapper #top-bar-wrapper #top-bar .top-bar-profile {
+		width: 100%;
+	}
+}
